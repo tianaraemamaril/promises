@@ -30,6 +30,22 @@ return new Promise (function (resolve, reject){
 // This function should retrieve the status code of a GET request to `url`
 var getStatusCodeAsync = function(url) {
   // TODO
+  return new Promise ( function (resolve, reject) {
+    request(url, (err, response) => {
+      if (err) {
+        reject(err);
+      } else {
+      resolve(response.statusCode)
+      }
+    });  
+  });
+  // return new Promise ( function (resolve, reject){
+  //   if(!url){
+  //     reject(url);
+  //   } else {
+  //     resolve(200, url)
+  //   }
+  // })
 };
 
 // Export these functions so we can test them and reuse them in later exercises
